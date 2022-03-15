@@ -24,6 +24,7 @@ class Data {
 }
 
 class _OneBoardingPageState extends State<OneBoardingPage> {
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
@@ -44,7 +45,7 @@ class _OneBoardingPageState extends State<OneBoardingPage> {
             'You can choose a doctor to talk with\nof course by your choice',
       ),
       Data(
-        img: 'assets/images/secured2.png',
+        img: 'assets/images/secured.png',
         title: 'Your data is safe\nwith us',
         description:
             'Your personal and medical data will\nnot be shared without your consent',
@@ -52,87 +53,91 @@ class _OneBoardingPageState extends State<OneBoardingPage> {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xffEEE5FF),
-              Colors.white,
-              Colors.white,
-              Colors.white,
+        backgroundColor: Colors.transparent,
+        body: gradiantBg(
+          Stack(
+            children: [
+              PageView(
+                onPageChanged: (index) {
+                  _currentPageNotifier.value = index;
+                },
+                controller: _pageController,
+                children: _data.map((e) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 40,
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(e.img),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        Text(
+                          e.title,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 39,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          e.description,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontFamily: 'Inter',
+                            // fontSize: 19,
+                            color: Color(0xff91919F),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ),
+              Align(
+                alignment: const Alignment(0, 0.55),
+                child: CirclePageIndicator(
+                  selectedDotColor: primaryColor,
+                  dotColor: const Color.fromARGB(31, 197, 197, 197),
+                  size: 8.0,
+                  selectedSize: 13.0,
+                  itemCount: _data.length,
+                  currentPageNotifier: _currentPageNotifier,
+                ),
+              ),
+              Align(
+                alignment: const Alignment(0, 0.75),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: btn(
+                      text: 'Sign Up',
+                      bg: primaryColor,
+                      color: Colors.white,
+                      context: context,
+                      routeName: '/signUp'),
+                ),
+              ),
+              Align(
+                alignment: const Alignment(0, 0.92),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: btn(
+                    text: 'Login',
+                    bg: secondaryColor,
+                    color: primaryColor,
+                    context: context,
+                    routeName: '/login',
+                  ),
+                ),
+              ),
             ],
           ),
-        ),
-        child: Stack(
-          children: [
-            PageView(
-              onPageChanged: (index) {
-                _currentPageNotifier.value = index;
-              },
-              controller: _pageController,
-              children: _data.map((e) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 40,
-                  ),
-                  child: Column(
-                    children: [
-                      Image.asset(e.img),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Text(
-                        e.title,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 39,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        e.description,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontFamily: 'Inter',
-                          // fontSize: 19,
-                          color: Color(0xff91919F),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
-            Align(
-              alignment: const Alignment(0, 0.55),
-              child: CirclePageIndicator(
-                selectedDotColor: primaryColor,
-                dotColor: const Color.fromARGB(31, 197, 197, 197),
-                size: 8.0,
-                selectedSize: 13.0,
-                itemCount: _data.length,
-                currentPageNotifier: _currentPageNotifier,
-              ),
-            ),
-            Align(
-              alignment: const Alignment(0, 0.75),
-              child: btn('Sign Up', primaryColor, Colors.white),
-            ),
-            Align(
-              alignment: const Alignment(0, 0.92),
-              child: btn('Login', secondaryColor, primaryColor),
-            ),
-          ],
-        ),
-      ),
-    );
+        ));
   }
 }

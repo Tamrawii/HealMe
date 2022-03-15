@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:heal_me/screens/login.dart';
+import 'package:heal_me/screens/oneboarding_page.dart';
+import 'package:heal_me/screens/sign_up.dart';
 
 import 'screens/splash_screen.dart';
 
@@ -21,8 +24,25 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           canvasColor: Colors.white,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            centerTitle: true,
+            titleTextStyle: TextStyle(
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+              fontSize: 20,
+            ),
+          ),
         ),
-        home: const SplashScreen(),
+        // home: const SplashScreen(),
+        routes: {
+          '/': (context) => const SplashScreen(),
+          '/o': (context) => const OneBoardingPage(),
+          '/login': (context) => const LoginPage(),
+          '/signUp': (context) => const SignUpPage(),
+        },
       ),
     );
   }
