@@ -19,8 +19,10 @@ Widget btn({
           backgroundColor: MaterialStateProperty.all(bg),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
+                borderRadius: BorderRadius.circular(15),
+                side: BorderSide(
+                  color: borderColor,
+                )),
           ),
         ),
         onPressed: () => Navigator.of(context).pushNamed(routeName),
@@ -56,8 +58,9 @@ Widget gradiantBg(Widget _child) => Container(
 Widget textfield({
   required String hint,
   required TextInputType inputType,
-}) => TextFormField(
-  keyboardType: inputType,
+}) =>
+    TextFormField(
+      keyboardType: inputType,
       decoration: InputDecoration(
         fillColor: Colors.white,
         filled: true,

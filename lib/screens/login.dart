@@ -139,7 +139,9 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/signUp');
+                        },
                         child: Text(
                           'Sign Up',
                           style: TextStyle(
