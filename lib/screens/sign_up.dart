@@ -118,7 +118,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       text: 'SignUp',
                       bg: primaryColor,
                       color: Colors.white,
-                      routeName: '/signUp',
+                      routeName: '/start',
                       context: context,
                     ),
                   ),

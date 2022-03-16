@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:heal_me/screens/get_started.dart';
 import 'package:heal_me/screens/login.dart';
 import 'package:heal_me/screens/oneboarding_page.dart';
 import 'package:heal_me/screens/sign_up.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           '/o': (context) => const OneBoardingPage(),
           '/login': (context) => const LoginPage(),
           '/signUp': (context) => const SignUpPage(),
+          '/start': (context) => const GetStarted(),
         },
       ),
     );
