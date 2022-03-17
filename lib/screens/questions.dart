@@ -158,93 +158,8 @@ class _QuestionsPageState extends State<QuestionsPage> {
                   ],
                 ),
                 page5(),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Lottie.asset(
-                      'assets/lottie/face recog.json',
-                      height: 150,
-                    ),
-                    const SizedBox(
-                      height: 70,
-                    ),
-                    const Text(
-                      'Enable Face Recognition',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    const Text(
-                      'The Face Recognition feature, helps you to\nsecure your account and also recognize\nyour mood automatically',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black26,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 40,
-                      ),
-                      child: SizedBox(
-                        height: 57,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            elevation: MaterialStateProperty.all(0),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.white),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  side: BorderSide(
-                                    color: borderColor,
-                                  )),
-                            ),
-                          ),
-                          onLongPress: () {
-                            Navigator.of(context).pushReplacementNamed('/h');
-                          },
-                          onPressed: () {
-                            // Navigator.of(context).pushReplacementNamed('/h');
-                            _currentPageNotifier.value > 4
-                                ? Navigator.of(context)
-                                    .pushReplacementNamed('/h')
-                                : _pageController.nextPage(
-                                    duration: const Duration(milliseconds: 500),
-                                    curve: Curves.easeIn,
-                                  );
-                          },
-                          child: const Text(
-                            'Skip',
-                            style: TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                page6(context),
+                
               ],
             ),
           ),
@@ -305,12 +220,12 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 ),
               ),
               onLongPress: () {
-                Navigator.of(context).pushReplacementNamed('/h');
+                Navigator.of(context).pushReplacementNamed('/l');
               },
               onPressed: () {
                 // Navigator.of(context).pushReplacementNamed('/h');
                 _currentPageNotifier.value > 4
-                    ? Navigator.of(context).pushReplacementNamed('/h')
+                    ? Navigator.of(context).pushReplacementNamed('/l')
                     : _pageController.nextPage(
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn,

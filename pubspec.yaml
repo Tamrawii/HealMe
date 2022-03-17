@@ -32,7 +32,9 @@ dependencies:
   easy_splash_screen: ^1.0.3
   flutter:
     sdk: flutter
+  flutter_snake_navigationbar: ^0.6.1
   image_picker: ^0.8.4+11
+  intl: ^0.17.0
   lottie: ^1.2.2
   page_view_indicators: ^2.0.0
   roundcheckbox: ^2.0.4+1

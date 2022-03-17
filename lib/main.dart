@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:heal_me/screens/get_started.dart';
 import 'package:heal_me/screens/home_screen.dart';
+import 'package:heal_me/screens/loading.dart';
 import 'package:heal_me/screens/login.dart';
 import 'package:heal_me/screens/oneboarding_page.dart';
 import 'package:heal_me/screens/questions.dart';
@@ -48,6 +49,8 @@ class MyApp extends StatelessWidget {
           '/start': (context) => const GetStarted(),
           '/q': (context) => const QuestionsPage(),
           '/h': (context) => const HomeScreen(),
+          '/l': (context) => const LoadingScreen(),
+
         },
       ),
     );
