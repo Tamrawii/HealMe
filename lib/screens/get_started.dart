@@ -80,7 +80,7 @@ class GetStarted extends StatelessWidget {
                     )),
               ),
             ),
-            onPressed: () => Navigator.of(context).pushNamed('/singUp'),
+            onPressed: () => Navigator.of(context).pushNamed('/q'),
             child: const Text(
               'Get Started',
               style: TextStyle(

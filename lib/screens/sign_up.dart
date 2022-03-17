@@ -35,7 +35,7 @@ class _SignUpPageState extends State<SignUpPage> {
             size: 30,
           ),
         ),
-        title: const Text('Login'),
+        title: const Text('Sign Up'),
       ),
       body: Container(
         height: double.infinity,

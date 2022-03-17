@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:heal_me/screens/get_started.dart';
+import 'package:heal_me/screens/home_screen.dart';
 import 'package:heal_me/screens/login.dart';
 import 'package:heal_me/screens/oneboarding_page.dart';
+import 'package:heal_me/screens/questions.dart';
 import 'package:heal_me/screens/sign_up.dart';
 
 import 'screens/splash_screen.dart';
@@ -37,13 +39,15 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        // home: const SplashScreen(),
+        // home: const TestScreen(),
         routes: {
           '/': (context) => const SplashScreen(),
           '/o': (context) => const OneBoardingPage(),
           '/login': (context) => const LoginPage(),
           '/signUp': (context) => const SignUpPage(),
           '/start': (context) => const GetStarted(),
+          '/q': (context) => const QuestionsPage(),
+          '/h': (context) => const HomeScreen(),
         },
       ),
     );
