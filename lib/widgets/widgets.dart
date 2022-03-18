@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/colors.dart';
 
@@ -631,13 +632,13 @@ List<Color> moodSelection = [
 Widget moodToday() => Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Your mood today',
           style: TextStyle(
             fontFamily: 'Inter',
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             fontSize: 24,
-            color: primaryColor,
+            color: Colors.black,
           ),
         ),
         const SizedBox(
@@ -667,13 +668,13 @@ Widget moodToday() => Column(
 Widget discover() => Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Discover',
           style: TextStyle(
             fontFamily: 'Inter',
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             fontSize: 24,
-            color: primaryColor,
+            color: Colors.black,
           ),
         ),
         const SizedBox(
@@ -681,7 +682,7 @@ Widget discover() => Column(
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Row(
             children: [
               Container(
@@ -822,7 +823,7 @@ Widget discover() => Column(
                           const Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'Music',
+                              'Music/Podcast',
                               style: TextStyle(
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w500,
@@ -898,7 +899,7 @@ Widget discover() => Column(
 Widget quotes() => Container(
       height: 100,
       width: double.infinity,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: const Color(0xff333242),
         image: const DecorationImage(
@@ -948,5 +949,107 @@ Widget quotes() => Container(
             ),
           ),
         ],
+      ),
+    );
+
+Widget articles(String title, String tag, String img, String url) => InkWell(
+      onTap: () async {
+        await launch(url, forceWebView: true);
+      },
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: const [
+            BoxShadow(
+              color: Color.fromARGB(22, 0, 0, 0),
+
+              offset: Offset(0, 5),
+
+              blurRadius: 10.0,
+
+              // spreadRadius: 1.0,
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              height: 120,
+              width: 130,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                image: DecorationImage(
+                    image: NetworkImage(img), fit: BoxFit.cover),
+              ),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            Expanded(
+              child: SizedBox(
+                height: 120,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Expanded(
+                      child: Text(
+                        tag,
+                        style: const TextStyle(
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                          color: Color(0xff9378FF),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 35,
+                      width: 100,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(0),
+                          backgroundColor:
+                              MaterialStateProperty.all(primaryColor),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                side: BorderSide(
+                                  color: borderColor,
+                                )),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: const Text(
+                          'Read Now',
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );

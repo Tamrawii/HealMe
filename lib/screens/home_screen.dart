@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: gradiantBg(
         SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -44,73 +44,57 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Recommended',
+                      const Text(
+                        'Recommended for you',
                         style: TextStyle(
                           fontFamily: 'Inter',
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                           fontSize: 24,
-                          color: primaryColor,
+                          color: Colors.black,
                         ),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        width: double.infinity,
-                        // padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          // color: secondaryColor,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 120,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                image: const DecorationImage(
-                                    image: NetworkImage(
-                                        'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/reference_guide/how_to_stop_feeling_anxious_right_now_ref_guide/1800x1200_how_to_stop_feeling_anxious_right_now_ref_guide.jpg?resize=650:*'),
-                                    fit: BoxFit.cover),
-                              ),
+                      articles(
+                        '16 Simple Ways to Relieve Stress',
+                        'SELF IMPROVMENT',
+                        'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/reference_guide/how_to_stop_feeling_anxious_right_now_ref_guide/1800x1200_how_to_stop_feeling_anxious_right_now_ref_guide.jpg?resize=650:*',
+                        'https://www.healthline.com/nutrition/16-ways-relieve-stress-anxiety',
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      articles(
+                        '30 Moves to Make the Most of Your At-Home Workout',
+                        'EXERCISING',
+                        'https://www.gannett-cdn.com/presto/2018/09/05/USAT/c95a0f2e-2c7a-48ca-bd5d-6de52229674a-GettyImages-862317986.jpg',
+                        'https://www.healthline.com/health/fitness-exercise/at-home-workouts',
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      articles(
+                        'How to sleep better: 15 science-backed tips - Headspace',
+                        'EXERCISING',
+                        'https://bettersleep.org/wp-content/uploads/2017/04/Top-Better-Sleep-Tips.jpg',
+                        'https://www.headspace.com/sleep/how-to-sleep-better',
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Align(
+                        alignment: const Alignment(0, 0),
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'See more',
+                            style: TextStyle(
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black26,
                             ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Expanded(
-                              child: SizedBox(
-                                height: 120,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: const [
-                                    Expanded(
-                                      child: Text(
-                                        '16 Simple Ways to Relieve Stress',
-                                        style: TextStyle(
-                                          fontFamily: 'Inter',
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                        ),
-                                        maxLines: 4,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Self Improvement',
-                                      style: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ),
                     ],
@@ -137,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ///configuration for SnakeNavigationBar.color
         snakeViewColor: primaryColor,
         selectedItemColor: primaryColor,
-        unselectedItemColor: Color.fromARGB(255, 216, 195, 255),
+        unselectedItemColor: const Color.fromARGB(255, 216, 195, 255),
 
         showUnselectedLabels: false,
         showSelectedLabels: true,

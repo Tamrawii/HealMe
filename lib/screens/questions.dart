@@ -1,4 +1,3 @@
-import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:heal_me/constants/colors.dart';
 import 'package:page_view_indicators/linear_progress_page_indicator.dart';

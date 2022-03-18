@@ -11,7 +11,7 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 5),
+    Future.delayed(const Duration(seconds: 5),
         () => Navigator.of(context).pushReplacementNamed('/h'));
     super.initState();
   }
